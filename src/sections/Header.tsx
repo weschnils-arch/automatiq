@@ -60,19 +60,23 @@ export default function Header() {
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12">
           <div className="relative flex items-center justify-between">
-            {/* Desktop Navigation - Left */}
-            <nav className="hidden md:flex items-center gap-8">
-              {navItems.map((item) => (
-                <a
-                  key={item.id}
-                  href={item.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
-                >
-                  {t(item.label.de, item.label.en)}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" />
-                </a>
-              ))}
-            </nav>
+            {/* Left Side - Desktop Navigation or Mobile Spacer */}
+            <div className="flex items-center">
+              <nav className="hidden md:flex items-center gap-8">
+                {navItems.map((item) => (
+                  <a
+                    key={item.id}
+                    href={item.href}
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                  >
+                    {t(item.label.de, item.label.en)}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" />
+                  </a>
+                ))}
+              </nav>
+              {/* Mobile: Empty space for balance */}
+              <div className="md:hidden w-10" />
+            </div>
 
             {/* Logo / Wordmark - Centered with Mouse Follow */}
             <div

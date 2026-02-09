@@ -1,7 +1,8 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import { AppProvider } from '@/context/AppContext';
 import Header from '@/sections/Header';
 import Hero from '@/sections/Hero';
+import UnicornSticky from '@/components/UnicornSticky';
 import './App.css';
 
 // Lazy load sections below the fold
@@ -59,6 +60,7 @@ function App() {
         <Suspense fallback={<SectionLoader />}>
           <Footer />
         </Suspense>
+        <UnicornSticky />
       </div>
     </AppProvider>
   );
