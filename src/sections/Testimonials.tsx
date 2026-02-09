@@ -6,7 +6,7 @@ import { TrendingUp, Users, Award, Clock } from 'lucide-react';
 const testimonials = [
   {
     id: '1',
-    client: 'TechStartup XYZ',
+    client: 'TATEKU GROUP GMBH',
     testimonial: {
       de: 'AutoMiQ hat unser Unternehmen mit einem maßgeschneiderten CRM-System transformiert. Wir sahen eine 200%ige Produktivitätssteigerung innerhalb von 3 Monaten.',
       en: 'AutoMiQ transformed our business with a custom CRM system. We saw a 200% increase in productivity within 3 months.',

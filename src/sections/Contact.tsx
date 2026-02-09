@@ -232,10 +232,10 @@ export default function Contact() {
           {/* Contact Info */}
           <div className={`lg:col-span-2 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
             }`}>
-            <div className="flex flex-col h-full justify-between">
+            <div className="flex flex-col gap-4 h-full">
               {/* Contact Cards */}
-              <div className="glass p-6">
-                <div className="flex items-center gap-4 mb-4">
+              <div className="glass p-8">
+                <div className="flex items-center gap-4">
                   <div className="p-3 rounded-full bg-blue-600/10">
                     <Mail className="w-5 h-5 text-blue-400" />
                   </div>
@@ -251,8 +251,8 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="glass p-6">
-                <div className="flex items-center gap-4 mb-4">
+              <div className="glass p-8">
+                <div className="flex items-center gap-4">
                   <div className="p-3 rounded-full bg-blue-600/10">
                     <Phone className="w-5 h-5 text-blue-400" />
                   </div>
@@ -268,8 +268,8 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="glass p-6">
-                <div className="flex items-center gap-4 mb-4">
+              <div className="glass p-8">
+                <div className="flex items-center gap-4">
                   <div className="p-3 rounded-full bg-blue-600/10">
                     <MapPin className="w-5 h-5 text-blue-400" />
                   </div>
@@ -283,16 +283,16 @@ export default function Contact() {
               </div>
 
               {/* Working Hours */}
-              <div className="glass p-6">
-                <h4 className="font-semibold text-foreground mb-3">
+              <div className="glass p-8">
+                <h4 className="font-semibold text-foreground mb-4">
                   {t('Bürozeiten', 'Office Hours')}
                 </h4>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
+                <div className="space-y-3 text-sm">
+                  <div className="flex justify-between items-center">
                     <span className="text-muted-foreground">{t('Mo - Fr', 'Mon - Fri')}</span>
-                    <span className="text-foreground">09:00 - 18:00</span>
+                    <span className="text-foreground font-medium">09:00 - 18:00</span>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between items-center">
                     <span className="text-muted-foreground">{t('Sa - So', 'Sat - Sun')}</span>
                     <span className="text-muted-foreground">{t('Geschlossen', 'Closed')}</span>
                   </div>

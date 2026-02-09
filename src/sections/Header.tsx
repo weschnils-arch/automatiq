@@ -96,20 +96,20 @@ export default function Header() {
 
             {/* Right Side Controls */}
             <div className="flex items-center gap-2 md:gap-4">
-              {/* Language Toggle */}
+              {/* Language Toggle - Desktop Only */}
               <button
                 onClick={toggleLanguage}
-                className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all font-inter"
+                className="hidden md:flex items-center gap-1.5 px-2 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all font-inter"
                 aria-label={t('Sprache wechseln', 'Change language')}
               >
                 <Globe className="w-4 h-4" />
                 <span className="hidden sm:inline">{language.toUpperCase()}</span>
               </button>
 
-              {/* Theme Toggle */}
+              {/* Theme Toggle - Desktop Only */}
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
+                className="hidden md:flex p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
                 aria-label={t('Theme wechseln', 'Change theme')}
               >
                 {theme === 'dark' ? (
@@ -156,17 +156,50 @@ export default function Header() {
             : '-translate-y-4 opacity-0'
             }`}
         >
-          <nav className="flex flex-col gap-4">
+          <nav className="flex flex-col gap-2">
             {navItems.map((item) => (
               <a
                 key={item.id}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg font-medium text-foreground hover:text-blue-400 transition-colors py-2"
+                className="text-lg font-medium text-foreground hover:text-blue-400 transition-colors py-3"
               >
                 {t(item.label.de, item.label.en)}
               </a>
             ))}
+
+            {/* Divider */}
+            <div className="h-px bg-white/10 my-2" />
+
+            {/* Mobile Actions (Language & Theme) */}
+            <div className="flex items-center justify-between py-2">
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center gap-3 px-3 py-2 rounded-xl text-base font-medium text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all w-full"
+              >
+                <Globe className="w-5 h-5" />
+                <span>{language === 'de' ? 'English' : 'Deutsch'}</span>
+              </button>
+            </div>
+
+            <div className="flex items-center justify-between py-2">
+              <button
+                onClick={toggleTheme}
+                className="flex items-center gap-3 px-3 py-2 rounded-xl text-base font-medium text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all w-full"
+              >
+                {theme === 'dark' ? (
+                  <>
+                    <Sun className="w-5 h-5" />
+                    <span>{t('Heller Modus', 'Light Mode')}</span>
+                  </>
+                ) : (
+                  <>
+                    <Moon className="w-5 h-5" />
+                    <span>{t('Dunkler Modus', 'Dark Mode')}</span>
+                  </>
+                )}
+              </button>
+            </div>
           </nav>
         </div>
       </div>

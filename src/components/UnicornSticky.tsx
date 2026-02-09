@@ -47,11 +47,7 @@ export default function UnicornSticky() {
   return (
     <div
       ref={containerRef}
-      className="fixed bottom-0 right-0 z-50"
-      style={{
-        width: '400px',
-        height: '185px'
-      }}
+      className="fixed bottom-0 right-0 z-50 w-[200px] h-[92.5px] md:w-[400px] md:h-[185px] origin-bottom-right"
     >
       <div
         data-us-project="LXmaV1BweOV2tJWfb7FJ"

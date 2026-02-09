@@ -76,7 +76,7 @@ export default function Hero() {
             muted
             playsInline
             preload="auto"
-            className="w-full h-full object-cover object-[54%_center]"
+            className="w-full h-full object-cover object-center md:object-[54%_center]"
             poster="/images/hero-bg.png"
           >
             <source src="/videos/hero-bg.webm" type="video/webm" />
