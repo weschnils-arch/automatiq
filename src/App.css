@@ -1,0 +1,69 @@
+/* App-specific styles */
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure full-width sections */
+section {
+  width: 100%;
+}
+
+/* Custom focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #D4AF37;
+  outline-offset: 2px;
+}
+
+/* Prevent text selection on interactive elements */
+button,
+a {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Glass card hover enhancement */
+.glass:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+/* Dark mode specific adjustments */
+.dark .glass {
+  background: rgba(26, 26, 26, 0.8);
+}
+
+/* Light mode specific adjustments */
+.light .glass {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Mobile touch improvements */
+@media (hover: none) {
+  .card-hover:hover {
+    transform: none;
+  }
+  
+  .btn-gold:hover,
+  .btn-glass:hover {
+    transform: none;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
