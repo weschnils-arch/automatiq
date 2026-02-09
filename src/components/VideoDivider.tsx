@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface VideoDividerProps {
     webmSrc: string;
     mp4Src: string;
