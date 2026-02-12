@@ -1,38 +1,44 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <title>AutoMiQ Corp.</title>
-    <meta name="description" content="Premium Software Solutions & Web Design. We develop custom software solutions and premium websites that transform your business." />
-    <script>
-      // Initialize theme before app loads to prevent flash
-      (function() {
-        const savedTheme = localStorage.getItem('automiq-theme');
-        if (savedTheme === 'dark' || !savedTheme) {
-          document.documentElement.classList.add('dark');
-        }
-      })();
-    </script>
-    <style>
-      /* Prevent flash of unstyled content */
-      html.dark {
-        background-color: #0F0F0F;
-        color: #F5F5F5;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>AUTOMATIQ CORP.</title>
+  <meta name="description"
+    content="Premium Software Solutions & Web Design. We develop custom software solutions and premium websites that transform your business." />
+  <script>
+    // Initialize theme before app loads to prevent flash
+    (function () {
+      const savedTheme = localStorage.getItem('automiq-theme');
+      if (savedTheme === 'dark' || !savedTheme) {
+        document.documentElement.classList.add('dark');
       }
-      html:not(.dark) {
-        background-color: #F8F8F8;
-        color: #1D1D1D;
-      }
-      body {
-        margin: 0;
-        min-height: 100vh;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    })();
+  </script>
+  <style>
+    /* Prevent flash of unstyled content */
+    html.dark {
+      background-color: #0F0F0F;
+      color: #F5F5F5;
+    }
+
+    html:not(.dark) {
+      background-color: #F8F8F8;
+      color: #1D1D1D;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

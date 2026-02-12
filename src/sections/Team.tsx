@@ -5,21 +5,6 @@ import { Linkedin, Mail, ChevronDown } from 'lucide-react';
 
 const teamMembers = [
   {
-    id: 'nils',
-    name: 'Nils Wesch',
-    title: {
-      de: 'Co-Founder & CEO',
-      en: 'Co-Founder & CEO',
-    },
-    bio: {
-      de: 'Nils bringt über 15 Jahre Erfahrung in der Enterprise-Softwareentwicklung ein und ist auf skalierbare SaaS-Architekturen und innovative Lösungen spezialisiert.',
-      en: 'Nils brings 15+ years of enterprise software development expertise, specializing in scalable SaaS architectures and innovative solutions.',
-    },
-    initials: 'NW',
-    color: 'from-blue-500 to-purple-600',
-    image: '/images/team/nils.png',
-  },
-  {
     id: 'michael',
     name: 'Michael Zarre',
     title: {
@@ -32,7 +17,52 @@ const teamMembers = [
     },
     initials: 'MZ',
     color: 'from-blue-600 to-cyan-500',
-    image: '/images/team/michael.jpeg',
+    image: '/images/team/michael.png',
+  },
+  {
+    id: 'nils',
+    name: 'Nils Wesch',
+    title: {
+      de: 'Design & Projektmanagement',
+      en: 'Design & Project Management',
+    },
+    bio: {
+      de: 'Nils bringt über 15 Jahre Erfahrung in der Enterprise-Softwareentwicklung ein und ist auf skalierbare SaaS-Architekturen und innovative Lösungen spezialisiert.',
+      en: 'Nils brings 15+ years of enterprise software development expertise, specializing in scalable SaaS architectures and innovative solutions.',
+    },
+    initials: 'NW',
+    color: 'from-blue-500 to-purple-600',
+    image: '/images/team/nils.jpeg',
+  },
+  {
+    id: 'leon',
+    name: 'Leon Schaefer',
+    title: {
+      de: 'Software Engineer',
+      en: 'Software Engineer',
+    },
+    bio: {
+      de: 'Leon ist ein leidenschaftlicher Software Engineer mit Expertise in modernen Webtechnologien und skalierbaren Anwendungen, der innovative Lösungen bei AutoMiQ entwickelt.',
+      en: 'Leon is a passionate Software Engineer with expertise in modern web technologies and scalable applications, building innovative solutions at AutoMiQ.',
+    },
+    initials: 'LS',
+    color: 'from-indigo-500 to-blue-500',
+    image: '/images/team/leon.jpeg',
+  },
+  {
+    id: 'flavi',
+    name: 'Flavi Ghea',
+    title: {
+      de: 'Business Development',
+      en: 'Business Development',
+    },
+    bio: {
+      de: 'Flavi treibt das Geschäftswachstum von AutoMiQ voran und baut strategische Partnerschaften auf, um innovative Softwarelösungen an die richtigen Kunden zu bringen.',
+      en: 'Flavi drives AutoMiQ\'s business growth and builds strategic partnerships to bring innovative software solutions to the right clients.',
+    },
+    initials: 'FG',
+    color: 'from-emerald-500 to-teal-500',
+    image: '/images/team/flavi.jpeg',
   },
 ];
 
@@ -73,7 +103,7 @@ export default function Team() {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {teamMembers.map((member, index) => {
             const isExpanded = expandedMember === member.id;
 
