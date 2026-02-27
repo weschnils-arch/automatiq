@@ -31,7 +31,7 @@ const teamMembers = [
       en: 'Nils brings 15+ years of enterprise software development expertise, specializing in scalable SaaS architectures and innovative solutions.',
     },
     initials: 'NW',
-    color: 'from-blue-500 to-purple-600',
+    color: 'from-blue-600 to-cyan-500',
     image: '/images/team/nils.webp',
   },
   {
@@ -46,7 +46,7 @@ const teamMembers = [
       en: 'Matez leads the Executive Management, ensuring strategic alignment and operational excellence at AutoMiQ.',
     },
     initials: 'MB',
-    color: 'from-rose-500 to-orange-500',
+    color: 'from-blue-600 to-cyan-500',
     image: '/images/matez.webp',
   },
   {
@@ -61,7 +61,7 @@ const teamMembers = [
       en: 'Leon is a passionate Software Engineer with expertise in modern web technologies and scalable applications, building innovative solutions at AutoMiQ.',
     },
     initials: 'LS',
-    color: 'from-indigo-500 to-blue-500',
+    color: 'from-blue-600 to-cyan-500',
     image: '/images/team/leon.webp',
   },
   {
@@ -76,7 +76,7 @@ const teamMembers = [
       en: 'Flavi drives AutoMiQ\'s business growth and builds strategic partnerships to bring innovative software solutions to the right clients.',
     },
     initials: 'FG',
-    color: 'from-emerald-500 to-teal-500',
+    color: 'from-blue-600 to-cyan-500',
     image: '/images/team/flavi.webp',
   },
 ];
