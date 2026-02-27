@@ -234,7 +234,7 @@ function AnimatedSlide() {
             </motion.div>
 
             {/* "CONSISTENT BY DESIGN." pill */}
-            <motion.div {...fadeIn(0)} className="absolute content-stretch flex gap-[4px] items-center justify-center left-[433px] px-[20px] py-[6px] rounded-[1000px] top-[2303px]">
+            <motion.div {...fadeIn(0)} className="absolute z-10 isolate content-stretch flex gap-[4px] items-center justify-center left-[518px] w-[737px] h-[48px] px-[20px] py-[6px] rounded-[1000px] top-[2360px]">
                 <GlassPill />
                 <div className="content-stretch flex h-[36px] items-center justify-center relative rounded-[100px] shrink-0">
                     <div className="flex flex-col font-['Gotham_Ultra',_'Montserrat',_sans-serif] font-black justify-center leading-[0] relative shrink-0 text-[17px] text-center text-white tracking-[8px] uppercase whitespace-nowrap" style={{ fontFeatureSettings: "'ss16'" }}>
@@ -249,7 +249,7 @@ function AnimatedSlide() {
                 whileInView={{ scaleY: 1 }}
                 viewport={{ once: false, amount: 0.1 }}
                 transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-                className="absolute bg-white h-[308px] left-[724px] top-[2404px] w-px origin-top"
+                className="absolute bg-white h-[308px] left-[724px] top-[2454px] w-px origin-top"
             />
 
             {/* col 1 row 4 shifted */}
@@ -260,12 +260,9 @@ function AnimatedSlide() {
             {/* Body paragraph */}
             <motion.p
                 {...fadeUp(0)}
-                className="absolute font-['Gotham_Bold',_'Montserrat',_sans-serif] font-bold h-[613px] leading-[0] left-[541px] text-[22px] text-justify text-white top-[2762px] uppercase w-[1308px] whitespace-pre-wrap"
+                className="absolute font-['Gotham_Bold',_'Montserrat',_sans-serif] font-bold leading-[38px] left-[541px] text-[22px] text-justify text-white top-[2762px] uppercase w-[1308px] whitespace-pre-wrap"
             >
-                <span className="leading-[38px]">
-                    {`The holy grail of AI creation is here: flawless consistency. We've moved beyond generating look-alikes to creating a persistent digital soul. The same character, with the same intricate tattoos and signature braids, can now seamlessly transition from a stark desert landscape to `}
-                </span>
-                <span className="font-['Gotham_Ultra',_'Montserrat',_sans-serif] font-black leading-[38px]">the cover of Vogue.</span>
+                The holy grail of AI creation is here: flawless consistency. We've moved beyond generating look-alikes to creating a persistent digital soul. The same character, with the same intricate tattoos and signature braids, can now seamlessly transition from a stark desert landscape to the cover of Vogue.
             </motion.p>
 
             {/* ROW 5 — top 2968 */}
