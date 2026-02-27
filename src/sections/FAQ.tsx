@@ -96,11 +96,11 @@ export default function FAQ() {
           <span className="text-sm font-medium text-blue-400 uppercase tracking-wider mb-4 block">
             {t('FAQ', 'FAQ')}
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 uppercase">
             {t(
               'Häufig gestellte Fragen',
               'Frequently Asked Questions'
-            )}
+            ).toUpperCase()}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             {t(
@@ -120,8 +120,8 @@ export default function FAQ() {
                 value={item.id}
                 className="glass border-none rounded-xl overflow-hidden px-6 data-[state=open]:border-blue-500/50 data-[state=open]:border"
               >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-blue-400 transition-colors py-5 [&[data-state=open]>svg]:text-blue-400">
-                  {language === 'de' ? item.question.de : item.question.en}
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-blue-400 transition-colors py-5 [&[data-state=open]>svg]:text-blue-400 uppercase tracking-wide">
+                  {language === 'de' ? item.question.de.toUpperCase() : item.question.en.toUpperCase()}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
                   {language === 'de' ? item.answer.de : item.answer.en}

@@ -1,10 +1,9 @@
 interface VideoDividerProps {
     webmSrc: string;
-    mp4Src: string;
     opacity?: number;
 }
 
-export default function VideoDivider({ webmSrc, mp4Src, opacity = 0.5 }: VideoDividerProps) {
+export default function VideoDivider({ webmSrc, opacity = 0.5 }: VideoDividerProps) {
     return (
         <div className="relative h-[400px] md:h-[600px] w-full overflow-hidden bg-[#0A0A0A]">
             <video
@@ -17,7 +16,6 @@ export default function VideoDivider({ webmSrc, mp4Src, opacity = 0.5 }: VideoDi
                 style={{ opacity }}
             >
                 <source src={webmSrc} type="video/webm" />
-                <source src={mp4Src} type="video/mp4" />
             </video>
 
             {/* Smooth transition gradients */}

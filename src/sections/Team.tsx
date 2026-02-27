@@ -17,14 +17,14 @@ const teamMembers = [
     },
     initials: 'MZ',
     color: 'from-blue-600 to-cyan-500',
-    image: '/images/team/michael.png',
+    image: '/images/team/michael.webp',
   },
   {
     id: 'nils',
     name: 'Nils Wesch',
     title: {
-      de: 'Design & Projektmanagement',
-      en: 'Design & Project Management',
+      de: 'Design & Management',
+      en: 'Design & Management',
     },
     bio: {
       de: 'Nils bringt über 15 Jahre Erfahrung in der Enterprise-Softwareentwicklung ein und ist auf skalierbare SaaS-Architekturen und innovative Lösungen spezialisiert.',
@@ -32,7 +32,7 @@ const teamMembers = [
     },
     initials: 'NW',
     color: 'from-blue-500 to-purple-600',
-    image: '/images/team/nils.jpeg',
+    image: '/images/team/nils.webp',
   },
   {
     id: 'leon',
@@ -47,11 +47,11 @@ const teamMembers = [
     },
     initials: 'LS',
     color: 'from-indigo-500 to-blue-500',
-    image: '/images/team/leon.jpeg',
+    image: '/images/team/leon.webp',
   },
   {
     id: 'flavi',
-    name: 'Flavi Ghea',
+    name: 'Flavius Ghea',
     title: {
       de: 'Business Development',
       en: 'Business Development',
@@ -62,7 +62,7 @@ const teamMembers = [
     },
     initials: 'FG',
     color: 'from-emerald-500 to-teal-500',
-    image: '/images/team/flavi.jpeg',
+    image: '/images/team/flavi.webp',
   },
 ];
 
@@ -88,7 +88,7 @@ export default function Team() {
           <span className="text-sm font-medium text-blue-400 uppercase tracking-wider mb-4 block">
             {t('Unser Team', 'Our Team')}
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 uppercase">
             {t(
               'Treffen Sie die Köpfe hinter der Mission',
               'Meet the Minds Behind the Mission'
@@ -103,7 +103,7 @@ export default function Team() {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
           {teamMembers.map((member, index) => {
             const isExpanded = expandedMember === member.id;
 
@@ -115,12 +115,12 @@ export default function Team() {
                 style={{ transitionDelay: `${index * 150 + 200}ms` }}
               >
                 <div
-                  className="glass p-8 text-center card-hover cursor-pointer"
+                  className="glass p-4 md:p-8 text-center card-hover cursor-pointer"
                   onClick={() => setExpandedMember(isExpanded ? null : member.id)}
                 >
                   {/* Avatar */}
-                  <div className="relative mb-6 mx-auto">
-                    <div className="w-32 h-32 mx-auto rounded-2xl overflow-hidden shadow-lg">
+                  <div className="relative mb-4 md:mb-6 mx-auto">
+                    <div className="w-20 h-20 md:w-32 md:h-32 mx-auto rounded-2xl overflow-hidden shadow-lg">
                       <img
                         src={member.image}
                         alt={member.name}
@@ -129,15 +129,15 @@ export default function Team() {
                     </div>
                     {/* Glow Effect */}
                     <div
-                      className={`absolute inset-0 w-32 h-32 mx-auto rounded-2xl bg-gradient-to-br ${member.color} opacity-30 blur-xl -z-10`}
+                      className={`absolute inset-0 w-20 h-20 md:w-32 md:h-32 mx-auto rounded-2xl bg-gradient-to-br ${member.color} opacity-30 blur-xl -z-10`}
                     />
                   </div>
 
                   {/* Name & Title */}
-                  <h3 className="text-xl font-semibold text-foreground mb-1">
+                  <h3 className="text-sm md:text-xl font-semibold text-foreground mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-blue-400 text-sm font-medium mb-4">
+                  <p className="text-blue-400 text-xs md:text-sm font-medium mb-4">
                     {t(member.title.de, member.title.en)}
                   </p>
 

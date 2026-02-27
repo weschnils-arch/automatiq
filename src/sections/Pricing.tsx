@@ -129,7 +129,6 @@ export default function Pricing() {
           className="w-full h-full object-cover opacity-50"
         >
           <source src="/videos/pricing.webm" type="video/webm" />
-          <source src="/videos/pricing.mp4" type="video/mp4" />
         </video>
         {/* Gradients for smooth transition */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]" />
@@ -147,7 +146,7 @@ export default function Pricing() {
           <span className="text-sm font-medium text-blue-400 uppercase tracking-wider mb-4 block">
             {t('Preise', 'Pricing')}
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 uppercase">
             {t(
               'Flexible Preise für jedes Unternehmen',
               'Flexible Pricing for Every Business'

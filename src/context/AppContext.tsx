@@ -15,7 +15,7 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>('de');
+  const [language, setLanguageState] = useState<Language>('en');
   const [theme, setThemeState] = useState<Theme>('dark');
   const [mounted, setMounted] = useState(false);
 
@@ -25,11 +25,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
     try {
       const savedLang = localStorage.getItem('automiq-language') as Language;
       const savedTheme = localStorage.getItem('automiq-theme') as Theme;
-      
+
       if (savedLang && (savedLang === 'de' || savedLang === 'en')) {
         setLanguageState(savedLang);
       }
-      
+
       if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
         setThemeState(savedTheme);
       }

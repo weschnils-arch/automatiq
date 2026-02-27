@@ -73,7 +73,7 @@ export default function Contact() {
           <span className="text-sm font-medium text-blue-400 uppercase tracking-wider mb-4 block">
             {t('Kontakt', 'Contact')}
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 uppercase">
             {t(
               'Bereit, Ihr Projekt zu starten?',
               'Ready to Start Your Project?'

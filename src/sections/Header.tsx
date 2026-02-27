@@ -7,6 +7,7 @@ const navItems = [
   { id: 'services', label: { de: 'Leistungen', en: 'Services' }, href: '#services' },
   { id: 'solutions', label: { de: 'Lösungen', en: 'Solutions' }, href: '#solutions' },
   { id: 'about', label: { de: 'Über uns', en: 'About' }, href: '#about' },
+  { id: 'imagine-ai', label: { de: 'IMAGINE AI', en: 'IMAGINE AI' }, href: '#imagine-ai' },
   { id: 'contact', label: { de: 'Kontakt', en: 'Contact' }, href: '#contact' },
 ];
 
@@ -14,17 +15,8 @@ export default function Header() {
   const { language, toggleLanguage, theme, toggleTheme, t } = useApp();
   const { scrollPosition } = useScrollPosition();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const isScrolled = scrollPosition > 80;
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const { clientX, clientY } = e;
-    const { innerWidth, innerHeight } = window;
-    const x = (clientX / innerWidth - 0.5) * 15; // Max 7.5px shift
-    const y = (clientY / innerHeight - 0.5) * 15;
-    setMousePos({ x, y });
-  };
 
   // Close mobile menu on resize
   useEffect(() => {
@@ -52,7 +44,6 @@ export default function Header() {
   return (
     <>
       <header
-        onMouseMove={handleMouseMove}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 mx-4 md:mx-8 ${isScrolled
           ? 'glass-strong py-3'
           : 'bg-transparent py-5'
@@ -60,9 +51,17 @@ export default function Header() {
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12">
           <div className="relative flex items-center justify-between">
-            {/* Left Side - Desktop Navigation or Mobile Spacer */}
-            <div className="flex items-center">
-              <nav className="hidden md:flex items-center gap-8">
+            {/* Left Side - Logo & Navigation */}
+            <div className="flex items-center gap-8 lg:gap-16">
+              <a
+                href="#"
+                className="text-xl md:text-2xl font-bold tracking-wider text-foreground hover:text-foreground transition-all whitespace-nowrap"
+              >
+                AUTOMIQ
+              </a>
+
+              {/* Desktop Navigation */}
+              <nav className="hidden md:flex items-center gap-6 lg:gap-8">
                 {navItems.map((item) => (
                   <a
                     key={item.id}
@@ -74,24 +73,6 @@ export default function Header() {
                   </a>
                 ))}
               </nav>
-              {/* Mobile: Empty space for balance */}
-              <div className="md:hidden w-10" />
-            </div>
-
-            {/* Logo / Wordmark - Centered with Mouse Follow */}
-            <div
-              className="absolute left-1/2 -translate-x-1/2"
-              style={{
-                transform: `translateX(calc(-50% + ${mousePos.x}px))`,
-                transition: 'transform 0.1s ease-out'
-              }}
-            >
-              <a
-                href="#"
-                className="text-xl md:text-2xl font-bold tracking-wider text-foreground hover:text-foreground transition-all whitespace-nowrap"
-              >
-                AUTOMIQ
-              </a>
             </div>
 
             {/* Right Side Controls */}

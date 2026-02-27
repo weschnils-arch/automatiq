@@ -119,7 +119,7 @@ export default function Testimonials() {
           <span className="text-sm font-medium text-blue-400 uppercase tracking-wider mb-4 block">
             {t('Testimonials', 'Testimonials')}
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 uppercase">
             {t(
               'Was unsere Kunden sagen',
               'What Our Clients Say'

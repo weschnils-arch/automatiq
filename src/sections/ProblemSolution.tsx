@@ -33,7 +33,7 @@ export default function ProblemSolution() {
               </span>
             </div>
 
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6 uppercase">
               {t(
                 'Wird Ihr Unternehmen durch veraltete Technologie begrenzt?',
                 'Is Your Business Limited by Outdated Technology?'
@@ -76,7 +76,7 @@ export default function ProblemSolution() {
               </span>
             </div>
 
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6 uppercase">
               {t(
                 'Entfesseln Sie Ihr Potenzial mit zukunftssicheren Lösungen.',
                 'Unlock Your Potential with Future-Proof Solutions.'

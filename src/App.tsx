@@ -9,6 +9,7 @@ import './App.css';
 const ProblemSolution = lazy(() => import('@/sections/ProblemSolution'));
 const Pricing = lazy(() => import('@/sections/Pricing'));
 const Team = lazy(() => import('@/sections/Team'));
+const ImagineAI = lazy(() => import('@/sections/ImagineAI'));
 const Testimonials = lazy(() => import('@/sections/Testimonials'));
 const FAQ = lazy(() => import('@/sections/FAQ'));
 const Contact = lazy(() => import('@/sections/Contact'));
@@ -40,7 +41,6 @@ function App() {
                   className="w-full h-full object-cover opacity-40"
                 >
                   <source src="/videos/about-divider.webm" type="video/webm" />
-                  <source src="/videos/about-divider.mp4" type="video/mp4" />
                 </video>
                 {/* Smooth transition gradients */}
                 <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0A0A0A] to-transparent" />
@@ -49,6 +49,7 @@ function App() {
 
               <div className="relative z-10 bg-[#0A0A0A]/30">
                 <Team />
+                <ImagineAI />
                 <Testimonials />
               </div>
             </div>

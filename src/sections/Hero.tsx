@@ -1,7 +1,62 @@
-import { useState } from 'react';
-import { Building2, Settings, Globe, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Building2, Settings, Globe, ArrowRight, Sparkles } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
 import { useParallax } from '@/hooks/useScrollAnimation';
+import Particles, { initParticlesEngine } from '@tsparticles/react';
+import { loadSlim } from '@tsparticles/slim';
+
+
+const particlesOptions = {
+  fullScreen: { enable: false, zIndex: 1 },
+  fpsLimit: 120,
+  interactivity: {
+    events: {
+      onClick: { enable: false },
+      onHover: { enable: false },
+      resize: { enable: true },
+    },
+  },
+  particles: {
+    color: {
+      value: "#ffffff",
+    },
+    links: {
+      color: "#ffffff",
+      distance: 300,
+      enable: true,
+      opacity: 0.4,
+      width: 1.5,
+    },
+    move: {
+      direction: "none" as const,
+      enable: true,
+      outModes: {
+        default: "bounce" as const,
+      },
+      random: false,
+      speed: 0.2,
+      straight: false,
+    },
+    number: {
+      density: {
+        enable: true,
+        width: 1920,
+        height: 1080,
+      },
+      value: 30,
+    },
+    opacity: {
+      value: 0.5,
+    },
+    shape: {
+      type: "circle" as const,
+    },
+    size: {
+      value: { min: 1, max: 3 },
+    },
+  },
+  detectRetina: true,
+};
 
 const services = [
   {
@@ -40,21 +95,75 @@ const services = [
       en: 'Visually stunning, high-performance websites that offer an unforgettable user experience.',
     },
   },
+  {
+    id: 'ai-art',
+    icon: Sparkles,
+    title: {
+      de: 'AI Art Direction',
+      en: 'AI Art Direction',
+    },
+    description: {
+      de: 'KI-gestützte Marken-Konsistenz-Engine. Intelligente generative Technologie für luxuriöse kreative Ausrichtung, die makellose Charakterkonsistenz über unbegrenzte Welten und Kontexte hinweg liefert.',
+      en: 'AI-Powered Brand Consistency Engine. Intelligent generative technology for luxury creative direction, delivering flawless character consistency across unlimited worlds and contexts.',
+    },
+  },
 ];
+
+const HeroParticles = React.memo(function HeroParticles() {
+  const [init, setInit] = useState(false);
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setInit(true);
+    });
+  }, []);
+
+  if (!init) return null;
+
+  return (
+    <Particles
+      id="tsparticles"
+      options={particlesOptions}
+      className="absolute inset-0 w-full h-full mix-blend-screen"
+    />
+  );
+});
 
 export default function Hero() {
   const { t } = useApp();
   const { ref: parallaxRef, offset } = useParallax(0.3);
   const [hoveredService, setHoveredService] = useState<string | null>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  // Use refs for mouse tracking to avoid React re-renders which force Particles to reload/jolt.
+  const titleContainerRef = React.useRef<HTMLDivElement>(null);
+  const mousePosRef = React.useRef({ x: 0, y: 0 });
+
+  const handleMouseMove = React.useCallback((e: React.MouseEvent) => {
     const { clientX, clientY } = e;
     const { innerWidth, innerHeight } = window;
-    const x = (clientX / innerWidth - 0.5) * 20; // Max 10px shift
-    const y = (clientY / innerHeight - 0.5) * 20;
-    setMousePos({ x, y });
-  };
+    mousePosRef.current = {
+      x: (clientX / innerWidth - 0.5) * 20, // Max 10px shift
+      y: (clientY / innerHeight - 0.5) * 20,
+    };
+  }, []);
+
+  // Sync mouse position directly to the DOM node via RAF loop.
+  useEffect(() => {
+    let animationFrameId: number;
+
+    const renderLoop = () => {
+      if (titleContainerRef.current) {
+        titleContainerRef.current.style.transform = `translate(${mousePosRef.current.x}px, ${mousePosRef.current.y}px)`;
+      }
+      animationFrameId = requestAnimationFrame(renderLoop);
+    };
+    renderLoop();
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
+
 
   return (
     <section
@@ -70,50 +179,46 @@ export default function Hero() {
           className="absolute inset-0 w-full h-[120%] -top-[10%]"
           style={{ transform: `translateY(${offset}px)` }}
         >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
+          <img
+            src="/images/hero_BG.webp"
+            alt="Hero Background"
             className="w-full h-full object-cover object-center md:object-[54%_center]"
-            poster="/images/hero-bg.png"
-          >
-            <source src="/videos/hero-bg.webm" type="video/webm" />
-            <source src="/videos/hero-bg.mp4" type="video/mp4" />
-          </video>
+          />
           {/* Light black overlay for contrast */}
           <div className="absolute inset-0 bg-black/60" />
           {/* Subtle bottom gradient for transition */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/50 pointer-events-none" />
+
+          {/* Particles configuration entirely isolated inside this purely static shell wrapper component to prevent ANY re-renders falling down through state. */}
+          <HeroParticles />
         </div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 section-container pt-32 pb-20">
-        <div className="max-w-5xl mx-auto text-center">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12 pt-32 pb-20 w-full">
+        <div className="text-left">
           {/* Main Headline with Mouse Follow */}
           <div
+            ref={titleContainerRef}
             style={{
-              transform: `translate(${mousePos.x}px, ${mousePos.y}px)`,
               transition: 'transform 0.1s ease-out'
             }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-shadow-hero animate-fade-in-up bg-gradient-to-r from-white from-60% to-gray-300 bg-clip-text text-transparent">
-              {t('Software. Präzision. Zukunft.', 'Software. Precision. Future.')}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[49px] xl:text-[61px] 2xl:text-[74px] font-bold mb-6 text-shadow-hero animate-fade-in-up bg-gradient-to-r from-white from-60% to-gray-300 bg-clip-text text-transparent w-full whitespace-normal lg:whitespace-nowrap leading-tight overflow-visible pb-2 lg:pb-3 pr-2 lg:pr-4">
+              {t('SOFTWARE. PRÄZISION. ZUKUNFT.', 'SOFTWARE. PRECISION. FUTURE.')}
             </h1>
           </div>
 
           {/* Subheadline */}
-          <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto mb-12 animate-fade-in-up stagger-1 whitespace-pre-line">
+          <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mb-12 animate-fade-in-up stagger-1">
             {t(
-              'Wir entwickeln maßgeschneiderte Softwarelösungen und Premium-Websites,\ndie Ihr Unternehmen transformieren.',
+              'Wir entwickeln maßgeschneiderte Softwarelösungen und Premium-Websites, die Ihr Unternehmen transformieren.',
               'We develop custom software solutions and premium websites that transform your business.'
             )}
           </p>
 
           {/* Service Highlights */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 animate-fade-in-up stagger-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10 mb-12 animate-fade-in-up stagger-2">
             {services.map((service) => {
               const Icon = service.icon;
               const isHovered = hoveredService === service.id;
@@ -121,29 +226,20 @@ export default function Hero() {
               return (
                 <div
                   key={service.id}
-                  className="glass p-6 cursor-pointer card-hover group"
+                  className="cursor-pointer group flex flex-col"
                   onMouseEnter={() => setHoveredService(service.id)}
                   onMouseLeave={() => setHoveredService(null)}
-                  style={{
-                    transform: isHovered ? 'perspective(1000px) rotateX(5deg) rotateY(-5deg)' : 'none',
-                    transition: 'transform 0.3s ease',
-                  }}
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className={`p-2 rounded-lg transition-all duration-300 ${isHovered ? 'bg-blue-600/20' : 'bg-muted'
-                      }`}>
-                      <Icon className={`w-5 h-5 transition-colors ${isHovered ? 'text-blue-400' : 'text-muted-foreground'
-                        }`} />
-                    </div>
-                    <h3 className="font-semibold text-foreground text-left text-sm">
+                  <div className="flex items-start gap-3 mb-2 min-h-[40px] lg:min-h-[48px]">
+                    <Icon className={`w-5 h-5 shrink-0 mt-[1px] transition-colors ${isHovered ? 'text-blue-400' : 'text-muted-foreground'}`} />
+                    <h3 className="font-semibold text-foreground text-left text-sm whitespace-pre-wrap leading-tight">
                       {t(service.title.de, service.title.en)}
                     </h3>
                   </div>
 
-                  {/* Description - shows on hover */}
-                  <div className={`overflow-hidden transition-all duration-300 ${isHovered ? 'max-h-24 opacity-100' : 'max-h-0 opacity-0'
-                    }`}>
-                    <p className="text-xs text-muted-foreground text-left">
+                  {/* Description - always visible */}
+                  <div className="mt-1">
+                    <p className="text-xs text-muted-foreground text-left mt-1">
                       {t(service.description.de, service.description.en)}
                     </p>
                   </div>
