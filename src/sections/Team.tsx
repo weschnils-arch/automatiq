@@ -35,6 +35,21 @@ const teamMembers = [
     image: '/images/team/nils.webp',
   },
   {
+    id: 'matez',
+    name: 'Matez Blackwood',
+    title: {
+      de: 'Executive Management',
+      en: 'Executive Management',
+    },
+    bio: {
+      de: 'Matez leitet das Executive Management und sorgt für die strategische Ausrichtung sowie operationelle Exzellenz bei AutoMiQ.',
+      en: 'Matez leads the Executive Management, ensuring strategic alignment and operational excellence at AutoMiQ.',
+    },
+    initials: 'MB',
+    color: 'from-rose-500 to-orange-500',
+    image: '/images/matez.webp',
+  },
+  {
     id: 'leon',
     name: 'Leon Schaefer',
     title: {
@@ -103,7 +118,7 @@ export default function Team() {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8 max-w-7xl mx-auto">
           {teamMembers.map((member, index) => {
             const isExpanded = expandedMember === member.id;
 
