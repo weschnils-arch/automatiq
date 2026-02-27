@@ -133,7 +133,7 @@ const HeroParticles = React.memo(function HeroParticles() {
 
 export default function Hero() {
   const { t } = useApp();
-  const { ref: parallaxRef, offset } = useParallax(0.3);
+  const { ref: parallaxRef, offset } = useParallax(0.15);
   const [hoveredService, setHoveredService] = useState<string | null>(null);
 
   // Use refs for mouse tracking to avoid React re-renders which force Particles to reload/jolt.
@@ -176,8 +176,8 @@ export default function Hero() {
         className="absolute inset-0 z-0 overflow-hidden"
       >
         <div
-          className="absolute inset-0 w-full h-[120%] -top-[10%]"
-          style={{ transform: `translateY(${offset}px)` }}
+          className="absolute inset-0 w-full h-[120%] -top-[10%] will-change-transform"
+          style={{ transform: `translate3d(0, ${offset * 0.5}px, 0)`, transition: 'transform 0.1s ease-out' }}
         >
           <img
             src="/images/hero_BG.webp"
@@ -210,7 +210,7 @@ export default function Hero() {
           </div>
 
           {/* Subheadline */}
-          <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mb-12 animate-fade-in-up stagger-1">
+          <p className="text-lg sm:text-lg md:text-xl lg:text-[21px] font-medium text-gray-200 w-auto max-w-none mb-12 animate-fade-in-up stagger-1 whitespace-nowrap">
             {t(
               'Wir entwickeln maßgeschneiderte Softwarelösungen und Premium-Websites, die Ihr Unternehmen transformieren.',
               'We develop custom software solutions and premium websites that transform your business.'
@@ -230,16 +230,16 @@ export default function Hero() {
                   onMouseEnter={() => setHoveredService(service.id)}
                   onMouseLeave={() => setHoveredService(null)}
                 >
-                  <div className="flex items-start gap-3 mb-2 min-h-[40px] lg:min-h-[48px]">
-                    <Icon className={`w-5 h-5 shrink-0 mt-[1px] transition-colors ${isHovered ? 'text-blue-400' : 'text-muted-foreground'}`} />
-                    <h3 className="font-semibold text-foreground text-left text-sm whitespace-pre-wrap leading-tight">
+                  <div className="flex items-center gap-3 mb-1">
+                    <Icon className={`w-5 h-5 shrink-0 transition-colors ${isHovered ? 'text-blue-400' : 'text-muted-foreground'}`} />
+                    <h3 className="font-semibold text-foreground text-left text-sm tracking-tight lg:-tracking-[0.01em] xl:tracking-normal whitespace-nowrap leading-tight">
                       {t(service.title.de, service.title.en)}
                     </h3>
                   </div>
 
                   {/* Description - always visible */}
-                  <div className="mt-1">
-                    <p className="text-xs text-muted-foreground text-left mt-1">
+                  <div className="mt-0.5">
+                    <p className="text-xs text-muted-foreground text-left">
                       {t(service.description.de, service.description.en)}
                     </p>
                   </div>

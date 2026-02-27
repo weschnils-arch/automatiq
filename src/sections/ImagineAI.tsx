@@ -243,13 +243,12 @@ function AnimatedSlide() {
                 </div>
             </motion.div>
 
-            {/* Vertical divider — draws down on scroll */}
             <motion.div
                 initial={{ scaleY: 0 }}
                 whileInView={{ scaleY: 1 }}
                 viewport={{ once: false, amount: 0.1 }}
                 transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-                className="absolute bg-white h-[308px] left-[724px] top-[2454px] w-px origin-top"
+                className="absolute bg-white h-[228px] left-[724px] top-[2463px] w-px origin-top"
             />
 
             {/* col 1 row 4 shifted */}
