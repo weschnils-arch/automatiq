@@ -135,7 +135,7 @@ export default function Team() {
                 >
                   {/* Avatar */}
                   <div className="relative mb-4 md:mb-6 mx-auto">
-                    <div className="w-20 h-20 md:w-32 md:h-32 mx-auto rounded-2xl overflow-hidden shadow-lg">
+                    <div className="w-20 h-20 md:w-28 md:h-28 xl:w-32 xl:h-32 mx-auto rounded-2xl overflow-hidden shadow-lg">
                       <img
                         src={member.image}
                         alt={member.name}
@@ -144,15 +144,15 @@ export default function Team() {
                     </div>
                     {/* Glow Effect */}
                     <div
-                      className={`absolute inset-0 w-20 h-20 md:w-32 md:h-32 mx-auto rounded-2xl bg-gradient-to-br ${member.color} opacity-30 blur-xl -z-10`}
+                      className={`absolute inset-0 w-20 h-20 md:w-28 md:h-28 xl:w-32 xl:h-32 mx-auto rounded-2xl bg-gradient-to-br ${member.color} opacity-30 blur-xl -z-10`}
                     />
                   </div>
 
                   {/* Name & Title */}
-                  <h3 className="text-sm md:text-xl font-semibold text-foreground mb-1">
+                  <h3 className="text-sm md:text-md lg:text-[15px] xl:text-xl font-semibold text-foreground mb-1 whitespace-nowrap tracking-tight">
                     {member.name}
                   </h3>
-                  <p className="text-blue-400 text-xs md:text-sm font-medium mb-4">
+                  <p className="text-blue-400 text-xs md:text-[11px] xl:text-sm font-medium mb-4 whitespace-nowrap">
                     {t(member.title.de, member.title.en)}
                   </p>
 
