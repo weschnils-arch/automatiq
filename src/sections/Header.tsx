@@ -7,7 +7,7 @@ const navItems = [
   { id: 'services', label: { de: 'Leistungen', en: 'Services' }, href: '#services' },
   { id: 'solutions', label: { de: 'Lösungen', en: 'Solutions' }, href: '#solutions' },
   { id: 'about', label: { de: 'Über uns', en: 'About' }, href: '#about' },
-  { id: 'imagine-ai', label: { de: 'IMAGINE AI', en: 'IMAGINE AI' }, href: '#imagine-ai' },
+  { id: 'imagine-ai', label: { de: 'Imagine AI', en: 'Imagine AI' }, href: '#imagine-ai' },
   { id: 'contact', label: { de: 'Kontakt', en: 'Contact' }, href: '#contact' },
 ];
 
