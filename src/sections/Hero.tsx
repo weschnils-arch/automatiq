@@ -210,11 +210,10 @@ export default function Hero() {
           </div>
 
           {/* Subheadline */}
-          <p className="text-lg sm:text-lg md:text-xl lg:text-[21px] font-medium text-gray-200 w-auto max-w-none mb-12 animate-fade-in-up stagger-1 whitespace-nowrap">
-            {t(
-              'Wir entwickeln maßgeschneiderte Softwarelösungen und Premium-Websites, die Ihr Unternehmen transformieren.',
-              'We develop custom software solutions and premium websites that transform your business.'
-            )}
+          <p className="text-base sm:text-lg md:text-xl lg:text-[21px] font-medium text-gray-200 w-full lg:w-auto max-w-[90vw] md:max-w-2xl lg:max-w-none mb-12 animate-fade-in-up stagger-1 whitespace-normal lg:whitespace-nowrap leading-relaxed">
+            {t('Wir entwickeln maßgeschneiderte Softwarelösungen und ', 'We develop custom software solutions and ')}
+            <br className="lg:hidden" />
+            {t('Premium-Websites, die Ihr Unternehmen transformieren.', 'premium websites that transform your business.')}
           </p>
 
           {/* Service Highlights */}
