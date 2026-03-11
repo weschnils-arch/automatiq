@@ -87,8 +87,8 @@ const services = [
     id: 'websites',
     icon: Globe,
     title: {
-      de: 'Premium Landing Pages & Websites',
-      en: 'Premium Landing Pages & Websites',
+      de: 'Landing Pages & Websites',
+      en: 'Landing Pages & Websites',
     },
     description: {
       de: 'Visuell beeindruckende, leistungsstarke Websites mit unvergesslichem Nutzererlebnis.',

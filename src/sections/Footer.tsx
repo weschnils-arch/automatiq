@@ -18,14 +18,14 @@ const quickLinks = {
 
 const legalLinks = {
   de: [
-    { label: 'Impressum', href: '#' },
-    { label: 'Datenschutz', href: '#' },
+    { label: 'Impressum', href: '#impressum' },
+    { label: 'Datenschutz', href: '#datenschutz' },
     { label: 'AGB', href: '#' },
     { label: 'Cookies', href: '#' },
   ],
   en: [
-    { label: 'Legal Notice', href: '#' },
-    { label: 'Privacy Policy', href: '#' },
+    { label: 'Legal Notice', href: '#impressum' },
+    { label: 'Privacy Policy', href: '#datenschutz' },
     { label: 'Terms of Service', href: '#' },
     { label: 'Cookies', href: '#' },
   ],
