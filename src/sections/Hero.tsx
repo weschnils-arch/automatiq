@@ -75,11 +75,11 @@ const services = [
     id: 'saas',
     icon: Settings,
     title: {
-      de: 'Maßgeschneiderte SaaS & Enterprise-Systeme',
+      de: 'SaaS & Enterprise-Systeme',
       en: 'Customized SaaS & Enterprise Systems',
     },
     description: {
-      de: 'Maßgeschneiderte B2B- und B2C-Software, von Kundenmanagementsystemen bis hin zu Enterprise-Anwendungen.',
+      de: 'B2B- und B2C-Software, von Kundenmanagementsystemen bis hin zu Enterprise-Anwendungen.',
       en: 'Bespoke B2B and B2C software, from customer management systems to full-scale enterprise applications.',
     },
   },
@@ -169,7 +169,7 @@ export default function Hero() {
     <section
       ref={parallaxRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A]"
+      className="relative min-h-screen flex items-center justify-center bg-[#0A0A0A]"
     >
       {/* Background Video with Parallax */}
       <div
@@ -203,8 +203,9 @@ export default function Hero() {
             style={{
               transition: 'transform 0.1s ease-out'
             }}
+            className="overflow-visible pt-2"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[49px] xl:text-[61px] 2xl:text-[74px] font-bold mb-6 text-shadow-hero animate-fade-in-up bg-gradient-to-r from-white from-60% to-gray-300 bg-clip-text text-transparent w-full whitespace-normal lg:whitespace-nowrap leading-tight overflow-visible pb-2 lg:pb-3 pr-2 lg:pr-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[49px] xl:text-[61px] 2xl:text-[74px] font-bold mb-6 text-shadow-hero animate-fade-in-up bg-gradient-to-r from-white from-60% to-gray-300 bg-clip-text text-transparent w-full whitespace-normal lg:whitespace-nowrap leading-[1.3] overflow-visible pt-1 pb-2 lg:pb-3 pr-2 lg:pr-4">
               {t('SOFTWARE. PRÄZISION. ZUKUNFT.', 'SOFTWARE. PRECISION. FUTURE.')}
             </h1>
           </div>

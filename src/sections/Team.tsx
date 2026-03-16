@@ -109,6 +109,10 @@ export default function Team() {
               'Meet the Minds Behind the Mission'
             )}
           </h2>
+          {/* Blue decorative underline */}
+          <div className="flex justify-center mb-6">
+            <div className="h-[3px] w-24 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400" />
+          </div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             {t(
               'Gegründet von erfahrenen Technologieexperten, die eine Vision teilen: Unternehmen durch innovative Software zu transformieren.',
